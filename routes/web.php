@@ -11,6 +11,25 @@
 |
 */
 
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
+
 Route::get('/', function () {
-    return view('welcome');
+    # Formas de hacer una encriptación en Laravel
+
+    md5('cadena');
+    echo "<br />";
+    
+    echo Hash::make('edteam');
+    echo "<br />";
+
+    echo bcrypt('secret');
+    echo "<br />";
+
+
+    $cadena = 'laravel';
+    echo Crypt::encrypt($cadena); // encripta
+    echo "<br />";
+    //echo Crypt::decrypt($cadena); // desencripta pero necesitas agregar en el controlador: "use Illuminate\Support\Facedes\Crypt;"
+    //return view('welcome');
 });
