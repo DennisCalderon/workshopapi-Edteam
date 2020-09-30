@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'role_structure' => [
+    'role_structure' => [       // roles
         'superadministrator' => [
             'users' => 'c,r,u,d',
             'acl' => 'c,r,u,d',
@@ -14,16 +14,21 @@ return [
         'user' => [
             'profile' => 'r,u'
         ],
-    ],
-    'permission_structure' => [
-        'cru_user' => [
-            'profile' => 'c,r,u'
+        'geust' => [ // agregamos un nuevo rol -> invitado
+            'profile' => 'r'
         ],
     ],
-    'permissions_map' => [
+    'permission_structure' => [
+        /*'cru_user' => [
+            'profile' => 'c,r,u'
+        ],*/
+    ],
+    'permissions_map' => [ // mapeo de los permisos
         'c' => 'create',
         'r' => 'read',
         'u' => 'update',
-        'd' => 'delete'
+        'd' => 'delete',
+        'i' => 'print',  // agregamos otro permiso que permita imprimir
+        're' => 'report' // y otro permiso para crear reportes
     ]
 ];
