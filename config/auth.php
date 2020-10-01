@@ -37,12 +37,16 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+            'driver' => 'session', // ingresar a la web mediante  user y pass
+            'provider' => 'users', // el proveedor siempre sera el User
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'token', // el ingreso a la API sera un token pero no es el único método
+            // 'driver' => 'Passport',
+            // 'driver' => 'JWT', es json web token
+            // 'driver' => 'custom-token',
+            // 'driver' => 'oauth',
             'provider' => 'users',
         ],
     ],
