@@ -16,8 +16,12 @@ use Illuminate\Http\Request;
 
 
 //la ruta seria -> http://workshopapi.test/api/user?api_token=XXXXXXXXXXXXXX
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user(); // esto nos retorna la información del usuario mediante el token que usemos
+});*/
+Route::middleware('auth:api')->group(function() {
+    Route::get('/products/all', 'ProductsController@index')->name('products.all'); // la ruta seria http://workshopapi.test/api/products/all?api_token=XXXXXXXXXXXXXX
+
 });
 
 Route::get('welcome', function() {      // la ruta seria -> http://workshopapi.test/api/welcome
