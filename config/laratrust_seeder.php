@@ -14,7 +14,7 @@ return [
         'user' => [
             'profile' => 'r,u'
         ],
-        'geust' => [ // agregamos un nuevo rol -> invitado
+        'guest' => [ // agregamos un nuevo rol -> invitado(guest)
             'profile' => 'r'
         ],
     ],
