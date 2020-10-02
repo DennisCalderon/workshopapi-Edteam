@@ -16,6 +16,7 @@ return [
     |
     */
 
+    #sengrid.net  -> se recomienda usar este servicio
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
