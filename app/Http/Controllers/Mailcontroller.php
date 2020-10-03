@@ -30,4 +30,42 @@ class Mailcontroller extends Controller
             'code' => 200
         ]);
     }
+
+    //Enviar correos con datos y html
+    public function enviarHtml() {
+        $data = ['titulo' => 'Bienvenidos al workshop',
+                'mensaje' => 'mensaje de prueba'
+            ];
+
+        // Mail::send() -> enviar correo
+        Mail::send('mails.testing', $data, function($body) use ($data){
+            $body->to('sepalaball@gmail.com', 'Yersi Days');
+            $body->subject('Nuevos cursos'.$data['titulo']);
+            $body->from('sepalaball@gmail.com', 'Edteam');
+        });
+
+        return response()->json([
+            'response' => 'Se envio correctamente el correo en Html',
+            'code' => 200
+        ]);
+    }
+
+    //Enviar correos con datos y una plantilla
+    public function enviarTemplate() {
+        $data = ['titulo' => 'Bienvenidos al workshop',
+                'mensaje' => 'mensaje de prueba'
+            ];
+
+        // Mail::send() -> enviar correo
+        Mail::send('mails.template', $data, function($body) use ($data){
+            $body->to('sepalaball@gmail.com', 'Yersi Days');
+            $body->subject('Nuevos cursos'.$data['titulo']);
+            $body->from('sepalaball@gmail.com', 'Edteam');
+        });
+
+        return response()->json([
+            'response' => 'Se envio correctamente el correo con un template',
+            'code' => 200
+        ]);
+    }
 }

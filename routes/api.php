@@ -21,8 +21,13 @@ use Illuminate\Http\Request;
 });*/
 Route::middleware('auth:api')->group(function() {
     Route::get('/products/all', 'ProductsController@index')->name('products.all'); // la ruta seria http://workshopapi.test/api/products/all?api_token=XXXXXXXXXXXXXX
+
     Route::get('/correo/basico', 'Mailcontroller@enviarBasico')->name('correo.basico'); // la ruta seria http://workshopapi.test/api/correo/basico?api_token=XXXXXXXXXXXXXX
         // el método debe de ser post(enviar) pero para fines del curso usaremos el método get para ver la respuesta
+    
+    Route::get('/correo/html', 'Mailcontroller@enviarHtml')->name('correo.html'); // la ruta seria http://workshopapi.test/api/correo/html?api_token=XXXXXXXXXXXXXX
+
+    Route::get('/correo/template', 'Mailcontroller@enviarTemplate')->name('correo.template'); // la ruta seria http://workshopapi.test/api/correo/html?api_token=XXXXXXXXXXXXXX
 
 });
 
